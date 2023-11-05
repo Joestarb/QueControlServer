@@ -42,14 +42,6 @@ export const createUsuario = async (req, res) => {
         res.status(201).json({ message: 'Usuario creado con éxito', id: results.insertId });
       }
       );
-      const token = await createAccessToken({id: results.insertId.id});
-      res.cookie("token", token);
-      res.json({
-        id: results.insertId.id,
-        nombre: results.insertId.nombre,
-        status: results.insertId.status,
-        perfil: results.insertId.perfil,
-      })
 };
 
 export const deleteUsuario = async (req, res) => {

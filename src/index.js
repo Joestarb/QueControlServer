@@ -1,12 +1,11 @@
 import cors from 'cors';
 import express from 'express';
-import mysql from 'mysql2';
 import morgan from 'morgan';
-import cookieParser from 'cookieParser';
+import mysql from 'mysql2';
 
-import userRouter from './routes/user.routes.js';
 import CheeseRouter from './routes/cheese.routes.js';
 import imagen from './routes/imagen.routes.js';
+import userRouter from './routes/user.routes.js';
 
 // require('dotenv').config();
 
@@ -22,7 +21,7 @@ app.use('/uploads', express.static('../../uploads'));
 export const conexion = mysql.createConnection({
     server: 'localhost',
     user: 'root',
-    password: '12345768',
+    password: 'arbeybachi1',
     database: 'queControl',
 });
 
@@ -34,10 +33,12 @@ conexion.connect((err) => {
         console.log("La conexión se establecio correctamente");
     }
 });
-
+app.get('/', (req, res) => {
+    res.send('Servidor corriendo en el navegador');
+});
 app.use(imagen)
 app.use(userRouter);
 app.use(CheeseRouter);
-app.listen(8082, () => {
+app.listen(3000, () => {
     console.log('Servidor disponible');
 })

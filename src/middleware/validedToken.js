@@ -1,5 +1,5 @@
-import  jwt from "jsonwebtoken";
-import { TOKEN_SECRET } from "../config";
+import jwt from "jsonwebtoken";
+import { TOKEN_SECRET } from "../config.js";
 
 export const autRequired = (req,res,next) => {
     console.log('Token validado');
