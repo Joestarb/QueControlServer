@@ -31,6 +31,16 @@ CREATE TABLE IF NOT EXISTS quesos(
     ingrediente_10 VARCHAR(20)
 );
 
+CREATE TABLE productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion_producto TEXT,
+    fecha_creacion DATE,
+    nombre_producto VARCHAR(255),
+    caducidad DATE,
+    ubicacion_almacen VARCHAR(255),
+    imagen_producto VARCHAR(255),
+    comentarios TEXT
+);
 
 
 DROP TABLE IF EXISTS quesos;

@@ -5,8 +5,8 @@ import mysql from 'mysql2';
 
 import CheeseRouter from './routes/cheese.routes.js';
 import imagen from './routes/imagen.routes.js';
+import productosInventarios from './routes/productosInventarios.routes.js';
 import userRouter from './routes/user.routes.js';
-
 // require('dotenv').config();
 
 // inizializando express
@@ -39,6 +39,7 @@ app.get('/', (req, res) => {
 app.use(imagen)
 app.use(userRouter);
 app.use(CheeseRouter);
+app.use(productosInventarios); // Agregar las rutas de productos aquí
 app.listen(3000, () => {
     console.log('Servidor disponible');
 })
