@@ -1,10 +1,9 @@
--- Active: 1696859538931@@127.0.0.1@3306@quecontrol
 CREATE DATABASE queControl;
 USE queControl;
 
 SHOW TABLES;
 
-CREATE TABLE  IF NOT EXISTS user(
+CREATE TABLE IF NOT EXISTS user(
     idUser INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(20) NOT NULL,
     contrasenia VARCHAR(50) NOT NULL,
@@ -14,6 +13,7 @@ CREATE TABLE  IF NOT EXISTS user(
     infoAdicional VARCHAR(100)
 );
 
+INSERT INTO user (nombre, contrasenia, perfil, telefono) VALUES ('Octavio','Patito','Tavito','9983242074');
 CREATE TABLE IF NOT EXISTS quesos(
     idQueso INT PRIMARY KEY AUTO_INCREMENT,
     nombreQueso VARCHAR(50) NOT NULL,
@@ -39,8 +39,9 @@ CREATE TABLE productos (
     caducidad DATE,
     ubicacion_almacen VARCHAR(255),
     imagen_producto VARCHAR(255),
-    comentarios TEXT
+    comentarios TEXT,
+    lote VARCHAR (20)
 );
 
+SELECT * FROM productos;
 
-DROP TABLE IF EXISTS quesos;

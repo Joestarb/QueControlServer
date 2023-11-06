@@ -37,9 +37,13 @@ export const createProducto = async (req, res) => {
         imagen_producto,
         comentarios
     } = req.body;
+
+    const loteI = nombre_producto.slice(6) + fecha_creacion.slice(5) + caducidad.slice(5) + ubicacion_almacen.slice(0,3)
+    const loteF = loteI.replace(/-/g, "").toUpperCase()
+
     conexion.query(
-        'INSERT INTO productos (descripcion_producto, fecha_creacion, nombre_producto, caducidad, ubicacion_almacen, imagen_producto, comentarios) VALUES (?, ?, ?, ?, ?, ?, ?)',
-        [descripcion_producto, fecha_creacion, nombre_producto, caducidad, ubicacion_almacen, imagen_producto, comentarios],
+        'INSERT INTO productos (descripcion_producto, fecha_creacion, nombre_producto, caducidad, ubicacion_almacen, imagen_producto, comentarios, lote) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [descripcion_producto, fecha_creacion, nombre_producto, caducidad, ubicacion_almacen, imagen_producto, comentarios, loteF],
         (err, results) => {
             if (err) {
                 console.error('Error al crear producto:', err);
